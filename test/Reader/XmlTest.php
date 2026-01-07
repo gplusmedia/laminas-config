@@ -34,7 +34,7 @@ class XmlTest extends AbstractReaderTestCase
      *
      * @see    AbstractReaderTestCase::getTestAssetPath()
      *
-     * @param  string $name
+     * @param string $name
      * @return string
      */
     protected function getTestAssetPath($name)
@@ -194,10 +194,7 @@ class XmlTest extends AbstractReaderTestCase
     private function getInternalXmlReader(Xml $xml)
     {
         $reflectionReader = new ReflectionProperty(Xml::class, 'reader');
-
-        $reflectionReader->setAccessible(true);
-
-        $xmlReader = $reflectionReader->getValue($xml);
+        $xmlReader        = $reflectionReader->getValue($xml);
 
         self::assertInstanceOf('XMLReader', $xmlReader);
 
